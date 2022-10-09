@@ -14,7 +14,6 @@
 
     <title>Frontend Mentor | E-commerce product page</title>
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,84 +25,130 @@
   </head>
   <body>
     <header>
-      <div class="container_logo">
-        <img src="./images/logo.svg" alt=" image with logo" class="img-logo" />
-        
-
-
-      </div>
-
       <nav>
-        <button class="collections">collections</button>
+        <div class="container_logo">
+          <img
+            src="./images/logo.svg"
+            alt=" image with logo"
+            class="img-logo"
+          />
+        </div>
+
+        <button class="collections">Collections</button>
         <button class="men">Men</button>
         <button class="women">Women</button>
         <button class="about">About</button>
         <button class="contact">Contact</button>
-      </div>
-
-        <div class="container_shopping-cart">
-          <button class="cart">
-            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#69707D" fill-rule="nonzero"/></svg>
-            <!-- <img src="./images/icon-cart.svg" alt="icon-cart"> -->
-  
-          </button>
-          <img src="./images/image-avatar.png" alt="image with avatar" class="img-awatar" />
       </nav>
+
+      <div class="container_shopping-cart">
+        <button class="cart">
+          <img src="./images/icon-cart.svg" alt="icon-cart" />
+        </button>
+        <img
+          src="./images/image-avatar.png"
+          alt="image with avatar"
+          class="img-awatar"
+        />
+      </div>
     </header>
+
     <main>
-<section class="container_images">
-  <div class="main-images">
-   <!-- ten tag img będzie sięznieniał z wależności od wybraanego obrazka  - 'produkt-1, lub -2, lub -3, lub -4'-->
-    <img src="./images/image-product-1.jpg" alt="big image with first product">
-  </div>
+      <section class="container_images">
+        <div class="main-images">
+          <!-- ten tag img będzie się zmieniał z wależności od wybraanego obrazka  - 'produkt-1, lub -2, lub -3, lub -4'-->
+          <img
+            class="main-image"
+            src="./images/image-product-1.jpg"
+            alt="big image with first product"
+          />
+        </div>
 
-<div class="all-images">
-<img src="./images/image-product-1-thumbnail.jpg" alt="" class="image active">
-<!-- klasa activ będzie robić obrazek przezroczystym z borderem -->
-<img src="./images/image-product-2-thumbnail.jpg" alt="" class="image">
-<img src="./images/image-product-3-thumbnail.jpg" alt="" class="image">
-<img src="./images/image-product-4-thumbnail.jpg" alt="" class="image">
-</div>
-</section>
+        <div class="all-images">
+          <div class="container_image active">
+            <img
+              src="./images/image-product-1-thumbnail.jpg"
+              alt=""
+              class="image"
+            />
+          </div>
+          <!-- klasa activ będzie robić obrazek przezroczystym z borderem -->
+          <div class="container_image">
+            <img
+              src="./images/image-product-2-thumbnail.jpg"
+              alt=""
+              class="image"
+            />
+          </div>
+          <div class="container_image">
+            <img
+              src="./images/image-product-3-thumbnail.jpg"
+              alt=""
+              class="image"
+            />
+          </div>
+          <div class="container_image">
+            <img
+              src="./images/image-product-4-thumbnail.jpg"
+              alt=""
+              class="image"
+            />
+          </div>
+        </div>
+      </section>
 
-<section class="description"></section>
+      <section class="description">
+        <strong class="company-label"> Sneaker Company </strong>
 
+        <h1>Fall Limited Edition Sneakers</h1>
+
+        <p>
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+
+        <div class="offer-prices">
+          <div class="current-price">
+            <strong class="price">$125.00 </strong>
+            <strong class="discount">50 %</strong>
+          </div>
+          <div class="old-price">
+            <strong>$250.00</strong>
+          </div>
+        </div>
+
+        <div class="adding-to-cart">
+          <div class="change-amount">
+            <button class="minus">
+              <img
+                src="./images/icon-minus.svg"
+                alt="icon minus"
+                class="icon-minus"
+              />
+            </button>
+            <strong class="amount"> 0 </strong>
+            <button class="plus">
+              <img
+                src="./images/icon-plus.svg"
+                alt="icon plus"
+                class="icon-plus"
+              />
+            </button>
+          </div>
+
+          <button class="add">
+            <img
+              src="./images/icon-cart-white.svg"
+              alt="image with cart"
+              class="img-cart"
+            />
+            Add to cart
+          </button>
+        </div>
+      </section>
     </main>
-<strong class="company-label">
-  Sneaker Company
-</strong>
-
-<h1>
-  Fall Limited Edition
-  Sneakers 
-</h1>
-
-    <p>   
-    These low-profile sneakers are your perfect casual wear companion.
-    Featuring a durable rubber outer sole, they’ll withstand everything the
-    weather can offer. 
-</p>  
-
-<div class="offer-prices">
-  <div class="current-price">
-    <strong class="price">$125.00 </strong>
-   <span class="discount">50%</span>
-  </div>
-  <div class="old-price">
-    $250.00 
-  </div>
-</div>
-
-<div class="adding-to-cart">
-<button class="amount">
-  <img src="./images/icon-minus.svg" alt="icon minus" class="icon-minus"> 0 <img src="./images/icon-plus.svg" alt="icon plus" class="icon-minus">
-</button>
-<button class="add">  
-  <!-- <img src="./images/icon-cart.svg" alt="image with cart" class="img-cart" />  -->
-  <svg  width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path class="icon-cart" d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="white" fill-rule="nonzero"/></svg>
-  Add to cart</button>
-</div> 
-   <!--     add to shopping card
+    <!--     add to shopping card
     0              Add to cart -->
 
     <!-- footer -->
