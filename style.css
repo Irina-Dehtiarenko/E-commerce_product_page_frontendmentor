@@ -46,22 +46,35 @@ main {
 }
 header {
   width: 90%;
+  height: 75px;
   justify-content: space-between;
   border-bottom: solid 2px var(--light-grayish-blue);
 }
 nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   width: 55%;
-  padding: 30px 0;
+}
+button {
+  border: none;
+
+  background-color: white;
+  padding: 0;
 }
 nav button {
+  padding: 27px 0;
   font-size: 16px;
   color: var(--dark-grayish-blue);
   letter-spacing: 1px;
+  transition: 0.2s;
+}
+nav button:hover {
+  color: var(--black);
+  padding-bottom: 27px;
+  border-bottom: 3px solid var(--orange);
 }
 .container_logo {
+  padding-top: 25px;
   padding-right: 30px;
 }
 div.container_shopping-cart {
@@ -73,16 +86,17 @@ img.img-awatar {
   width: 50px;
   margin-left: 30px;
 }
-button {
-  border: none;
-  background-color: white;
-  padding: 0;
+img.img-awatar:hover {
+  border-radius: 50%;
+  outline: 2px solid var(--orange);
 }
+
 button:hover,
 .container_image:hover,
 .img-awatar:hover {
   cursor: pointer;
 }
+
 main {
   justify-content: space-between;
   padding: 50px 50px;
@@ -111,12 +125,23 @@ img.image {
   width: 100%;
   height: 100%;
 }
+img.image:hover {
+  opacity: 0.6;
+}
 div.active {
-  overflow: hidden;
-  border: 3px solid var(--orange);
-  border-radius: 10px;
+  border: 2px solid var(--orange);
+  border-radius: 12px;
 }
 div.active img {
+  outline: 2px solid var(--orange);
+  opacity: 0.4;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.active img:hover {
   opacity: 0.4;
 }
 .description {
@@ -196,4 +221,60 @@ button.add {
 }
 .add .img-cart {
   margin-right: 20px;
+}
+@media (max-width: 1036px) {
+  nav button {
+    font-size: 12px;
+  }
+  nav button:hover {
+    padding-bottom: 25px;
+  }
+}
+@media (max-width: 860px) {
+  nav {
+    width: 75%;
+  }
+}
+@media (max-width: 660px) {
+  nav button {
+    /* padding-bottom: 24px; */
+    font-size: 10px;
+  }
+  nav button:hover {
+    padding-bottom: 24px;
+  }
+  main {
+    flex-direction: column;
+  }
+  img.main-image,
+  .all-images {
+    width: 100%;
+  }
+
+  .container_images,
+  .description {
+    width: 80%;
+    margin: 0px auto;
+  }
+  .container_images {
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 600px) {
+  .container_logo {
+    padding-right: 5px;
+    width: 30%;
+  }
+  .img-logo {
+    width: 100%;
+    padding-bottom: 2px;
+  }
+  button.cart img {
+    width: 15px;
+    /* height: 10px; */
+  }
+  img.img-awatar {
+    width: 35px;
+    margin-left: 15px;
+  }
 }
