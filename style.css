@@ -38,6 +38,16 @@
 body {
   font-family: "Kumbh Sans", sans-serif;
 }
+
+body.transparent::before {
+  display: flex;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+}
+
 header,
 main {
   display: flex;
@@ -55,9 +65,21 @@ nav {
   justify-content: space-between;
   width: 55%;
 }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.contener_icon-menu,
+.contener_icon-next,
+.contener_icon-previous {
+  display: none;
+}
+.contener_icon-close {
+  margin: 10px 0 50px 10px;
+}
 button {
   border: none;
-
   background-color: white;
   padding: 0;
 }
@@ -73,9 +95,9 @@ nav button:hover {
   padding-bottom: 27px;
   border-bottom: 3px solid var(--orange);
 }
+
 .container_logo {
-  padding-top: 25px;
-  padding-right: 30px;
+  margin: 25px 30px 0 0;
 }
 div.container_shopping-cart {
   display: flex;
@@ -140,6 +162,9 @@ div.active img {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+body.transparent div.active img {
+  opacity: 0.1;
 }
 div.active img:hover {
   opacity: 0.4;
@@ -222,6 +247,7 @@ button.add {
 .add .img-cart {
   margin-right: 20px;
 }
+
 @media (max-width: 1036px) {
   nav button {
     font-size: 12px;
@@ -237,7 +263,6 @@ button.add {
 }
 @media (max-width: 660px) {
   nav button {
-    /* padding-bottom: 24px; */
     font-size: 10px;
   }
   nav button:hover {
@@ -271,10 +296,136 @@ button.add {
   }
   button.cart img {
     width: 15px;
-    /* height: 10px; */
   }
   img.img-awatar {
     width: 35px;
     margin-left: 15px;
   }
+}
+
+@media (max-width: 375px) {
+  body {
+    position: relative;
+  }
+  .nav,
+  .nav button {
+    display: flex;
+    padding: 10px;
+  }
+  .nav {
+    display: none;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    left: 0;
+    /* nie wiem jak poprostu zrobić, żeby to zajmowało całą wysokość, responsywnie z innymi elementami */
+    min-height: 100vh;
+    width: 70%;
+
+    background-color: var(--white);
+  }
+
+  .contener_icon-menu {
+    display: block;
+    margin: 29px 15px 0 10px;
+  }
+  .container_logo img {
+    width: 150px;
+  }
+  .nav button {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--very-dark-blue);
+  }
+  .cart {
+    padding-top: 5px;
+    /* height: 50px; */
+  }
+  button.cart img {
+    width: 25px;
+  }
+  img.img-awatar {
+    width: 25px;
+  }
+
+  main {
+    padding: 0;
+  }
+  .container_images {
+    margin: 0;
+    width: 100vw;
+  }
+  div.main-images {
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+  }
+  div.main-images img {
+    border-radius: 0;
+  }
+  .all-images {
+    display: none;
+  }
+
+  .contener_icon-next,
+  .contener_icon-previous {
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    margin: 10px;
+
+    background: var(--white);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .contener_icon-previous {
+    padding: 11px 17px 9px 13px;
+  }
+
+  .contener_icon-next {
+    right: 0;
+    padding: 11px 13px 9px 17px;
+  }
+  section.description {
+    width: 100%;
+    padding: 20px;
+  }
+  strong.company-label {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  div.offer-prices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price {
+    margin-right: 10px;
+  }
+  .old-price strong {
+    display: block;
+    margin-top: 20px;
+  }
+  .adding-to-cart {
+    flex-direction: column;
+  }
+  .change-amount {
+    width: 100%;
+    height: 50px;
+  }
+  button.add {
+    margin-top: 15px;
+  }
+}
+
+.hidden {
+  display: none;
 }

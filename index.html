@@ -23,8 +23,17 @@
 
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
+  <body">
     <header>
+
+      <div class="contener_icon-menu">
+        <img
+          src="./images/icon-menu.svg"
+          alt=" icon for menu"
+          class="icon-close"
+        />
+      </div>
+
       <nav>
         <div class="container_logo">
           <img
@@ -34,16 +43,33 @@
           />
         </div>
 
-        <button class="collections">Collections</button>
+        <!-- <button class="collections">Collections</button>
         <button class="men">Men</button>
         <button class="women">Women</button>
         <button class="about">About</button>
-        <button class="contact">Contact</button>
+        <button class="contact">Contact</button> -->
+
+        <div class="nav">
+          <div class="contener_icon-close hidden">
+            <img
+              src="./images/icon-close.svg"
+              alt=" icon for close"
+              class="icon-close"
+            />
+          </div>
+
+          <button class="collections">Collections</button>
+          <button class="men">Men</button>
+          <button class="women">Women</button>
+          <button class="about">About</button>
+          <button class="contact">Contact</button>
+        </div>
       </nav>
 
       <div class="container_shopping-cart">
         <button class="cart">
-          <img src="./images/icon-cart.svg" alt="icon-cart" />
+          <img src="./images/icon-cart.svg" alt="icon-cart" 
+    />
         </button>
         <img
           src="./images/image-avatar.png"
@@ -56,7 +82,19 @@
     <main>
       <section class="container_images">
         <div class="main-images">
+          <div class="contener_icon-previous">
+            <img
+              src="./images/icon-previous.svg"
+              alt=" icon for clicking to previous page"
+            />
+          </div>
           <!-- ten tag img będzie się zmieniał z wależności od wybraanego obrazka  - 'produkt-1, lub -2, lub -3, lub -4'-->
+          <div class="contener_icon-next">
+            <img
+              src="./images/icon-next.svg"
+              alt=" icon for clicking to next page"
+            />
+          </div>
           <img
             class="main-image"
             src="./images/image-product-1.jpg"
