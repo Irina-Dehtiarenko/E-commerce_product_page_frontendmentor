@@ -39,10 +39,12 @@ body {
   font-family: "Kumbh Sans", sans-serif;
 }
 
-body.transparent::before {
+body.transparent::after {
   display: flex;
-  position: absolute;
   content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.75);
@@ -55,6 +57,7 @@ main {
   margin: 0 auto;
 }
 header {
+  position: relative;
   width: 90%;
   height: 75px;
   justify-content: space-between;
@@ -78,6 +81,9 @@ nav {
 .contener_icon-close {
   margin: 10px 0 50px 10px;
 }
+.container_logo {
+  margin: 25px 30px 0 0;
+}
 button {
   border: none;
   background-color: white;
@@ -90,22 +96,40 @@ nav button {
   letter-spacing: 1px;
   transition: 0.2s;
 }
-nav button:hover {
+nav button:hover,
+nav button.active:hover {
   color: var(--black);
   padding-bottom: 27px;
   border-bottom: 3px solid var(--orange);
 }
 
-.container_logo {
-  margin: 25px 30px 0 0;
+button:hover,
+.container_image:hover,
+.img-awatar:hover,
+.contener_icon-previous,
+.contener_icon-next {
+  cursor: pointer;
 }
+
 div.container_shopping-cart {
   display: flex;
   align-items: center;
+  position: relative;
 }
-
+.amount-of-order {
+  display: block;
+  position: absolute;
+  top: 29%;
+  left: 10px;
+  padding: 1px 6px;
+  font-size: 8px;
+  background-color: var(--orange);
+  color: var(--white);
+  text-align: center;
+  border-radius: 40%;
+}
 img.img-awatar {
-  width: 50px;
+  width: 40px;
   margin-left: 30px;
 }
 img.img-awatar:hover {
@@ -113,12 +137,78 @@ img.img-awatar:hover {
   outline: 2px solid var(--orange);
 }
 
-button:hover,
-.container_image:hover,
-.img-awatar:hover {
-  cursor: pointer;
+div.cart {
+  z-index: 1;
+  position: absolute;
+  top: 60px;
+  width: 350px;
+  min-height: 250px;
+  right: 0px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0px 8px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
+.title {
+  border-bottom: 2px solid var(--light-grayish-blue);
+}
+.title p {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--very-dark-blue);
+}
+.title,
+.contain {
+  padding: 20px;
+}
+.contain {
+  display: flex;
+
+  min-height: 170px;
+  color: var(--dark-grayish-blue);
+}
+.empty {
+  justify-content: center;
+  align-items: center;
+}
+.not-empty {
+  flex-direction: column;
+  justify-content: space-between;
+}
+.not-empty .product {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.not-empty .product img {
+  height: 55px;
+  border-radius: 8px;
+}
+.not-empty .product .info-amount {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+}
+.not-empty .product .info-amount p {
+  margin-bottom: 5px;
+}
+.not-empty .product .info-amount strong {
+  margin-left: 10px;
+  color: var(--very-dark-blue);
+}
+.not-empty .product svg {
+  fill: var(--grayish-blue);
+}
+.not-empty .product svg:hover {
+  fill: var(--dark-grayish-blue);
+}
+.not-empty button {
+  padding: 15px 0;
+  font-weight: bold;
+  background-color: var(--orange);
+  color: var(--white);
+  border-radius: 10px;
+}
 main {
   justify-content: space-between;
   padding: 50px 50px;
@@ -187,7 +277,7 @@ h1 {
   font-size: 45px;
   color: var(--very-dark-blue);
 }
-p {
+main p {
   margin-bottom: 20px;
   font-size: 16px;
   color: var(--dark-grayish-blue);
@@ -268,6 +358,7 @@ button.add {
   nav button:hover {
     padding-bottom: 24px;
   }
+
   main {
     flex-direction: column;
   }
@@ -297,9 +388,28 @@ button.add {
   button.cart img {
     width: 15px;
   }
+  .amount-of-order {
+    top: 31%;
+    left: 10px;
+    padding: 1px 4px;
+    font-size: 7px;
+  }
   img.img-awatar {
     width: 35px;
     margin-left: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    padding: 0;
+  }
+  .container_logo img {
+    width: 50px;
+  }
+  .nav button {
+    letter-spacing: 0.5px;
+    padding-right: 3px;
   }
 }
 
@@ -345,19 +455,27 @@ button.add {
   button.cart img {
     width: 25px;
   }
+  .amount-of-order {
+    left: 15px;
+    padding: 1px 6px;
+    font-size: 10px;
+  }
   img.img-awatar {
     width: 25px;
   }
 
-  main {
-    padding: 0;
+  div.cart {
+    top: 85px;
+    left: -8px;
+    width: 105%;
   }
+
   .container_images {
     margin: 0;
     width: 100vw;
   }
   div.main-images {
-    height: 60vh;
+    height: 300px;
     position: relative;
     overflow: hidden;
   }
