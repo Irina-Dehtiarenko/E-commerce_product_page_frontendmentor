@@ -20,7 +20,12 @@ const cartNotEmpty = document.querySelector("div.not-empty");
 const amountInCart = document.querySelector("span.amount-in-cart");
 const fullPrice = document.querySelector("strong.full-price");
 const selectedAmount = document.querySelector(".change-amount strong.amount");
-console.log(selectedAmount);
+const iconMenu = document.querySelector(".icon-menu");
+const navigation = document.querySelector(".nav");
+const iconCloseNav = document.querySelector(
+  ".opened-nav-menu .contener_icon-close .icon-close"
+);
+console.log(iconCloseNav);
 
 // odrazu po zaladowaniu strony:
 selectedAmount.textContent = amount;
@@ -36,6 +41,16 @@ if (amount >= 0) {
   }
 }
 
+showMobNav = () => {
+  navigation.style.display = "flex";
+  //   close a mobile nav
+  iconCloseNav.addEventListener("click", () => {
+    navigation.style.display = "none";
+  });
+};
+
+iconMenu.addEventListener("click", showMobNav);
+
 const showCart = () => {
   if (amount >= 0) {
     divCart.classList.toggle("hidden");
@@ -49,7 +64,7 @@ const showCart = () => {
       amounOfOrder.classList.remove("hidden");
       amounOfOrder.textContent = amount;
       amountInCart.textContent = amount;
-      fullPrice.textContent = `$ ${price * amount}.00`;
+      fullPrice.textContent = `$${price * amount}.00`;
     }
   }
 };
