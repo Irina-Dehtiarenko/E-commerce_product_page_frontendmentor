@@ -74,6 +74,7 @@ nav {
   width: 100%;
 }
 .contener_icon-menu,
+.nav .icon-close,
 .main-page .contener_icon-next,
 .main-page .contener_icon-previous {
   display: none;
@@ -83,6 +84,11 @@ nav {
 }
 .container_logo {
   margin: 25px 30px 0 0;
+}
+.opened-nav-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 button {
   border: none;
@@ -260,38 +266,6 @@ body.transparent div.active img {
 div.active img:hover {
   opacity: 0.4;
 }
-
-.light-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.75);
-}
-.light-box div.main-images {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.light-box img.main-image {
-  margin: 0 auto;
-  width: 50%;
-}
-.light-box .contener_icon-previous {
-  position: absolute;
-  left: 22%;
-}
-.light-box .contener_icon-next {
-  position: absolute;
-  right: 22%;
-}
-
 .contener_icon-previous,
 .contener_icon-next {
   background: var(--white);
@@ -313,6 +287,53 @@ div.active img:hover {
 .contener_icon-next {
   padding: 11px 13px 9px 17px;
 }
+
+.light-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.light-box .container_close-svg {
+  position: absolute;
+  top: -8%;
+  right: 16%;
+  padding: 10px;
+}
+
+.light-box .container_close-svg svg {
+  fill: var(--grayish-blue);
+}
+.light-box .container_close-svg:hover svg {
+  fill: var(--orange);
+}
+
+.light-box div.main-images {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.light-box img.main-image {
+  margin: 0 auto;
+  width: 50%;
+}
+.light-box .contener_icon-previous {
+  position: absolute;
+  left: 22%;
+}
+.light-box .contener_icon-next {
+  position: absolute;
+  right: 22%;
+}
+
 .light-box .all-images {
   /* align-items: center;
   justify-content: center; */
@@ -440,6 +461,9 @@ button.add {
   main {
     flex-direction: column;
   }
+  .light-box .container_close-svg {
+    right: 3%;
+  }
   img.main-image,
   .all-images {
     width: 100%;
@@ -510,28 +534,16 @@ button.add {
     display: none;
   }
 }
-
-@media (max-width: 375px) {
+@media (max-width: 415px) {
+  div.cart {
+    top: 75px;
+    left: -8px;
+    width: 105%;
+  }
+}
+@media (max-width: 394px) {
   body {
     position: relative;
-  }
-  .nav,
-  .nav button {
-    display: flex;
-    padding: 10px;
-  }
-  .nav {
-    display: none;
-    z-index: 1;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: absolute;
-    left: 0;
-    /* nie wiem jak poprostu zrobić, żeby to zajmowało całą wysokość, responsywnie z innymi elementami */
-    min-height: 100vh;
-    width: 70%;
-
-    background-color: var(--white);
   }
 
   .contener_icon-menu {
@@ -540,6 +552,37 @@ button.add {
   }
   .container_logo img {
     width: 150px;
+  }
+  .nav,
+  .nav button {
+    display: flex;
+    padding: 20px;
+  }
+  .nav {
+    display: none;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  .nav .icon-close {
+    display: block;
+    padding: 10px;
+  }
+  .opened-nav-menu {
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 70%;
+    background-color: var(--white);
   }
   .nav button {
     font-size: 16px;
@@ -632,6 +675,31 @@ button.add {
   }
   button.add {
     margin-top: 15px;
+  }
+}
+@media (max-width: 281px) {
+  div.cart {
+    top: 75px;
+    left: 0;
+    width: 100%;
+    min-height: 400px;
+  }
+  div.cart .product {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    height: 200px;
+    margin-bottom: 30px;
+  }
+  div.cart .product img {
+    width: 100px;
+    height: 100px;
+  }
+  div.cart .product svg {
+    position: absolute;
+    top: 30px;
+    right: 20px;
   }
 }
 
