@@ -21,7 +21,7 @@ const amountInCart = document.querySelector("span.amount-in-cart");
 const fullPrice = document.querySelector("strong.full-price");
 const selectedAmount = document.querySelector(".change-amount strong.amount");
 const iconMenu = document.querySelector(".icon-menu");
-const navigation = document.querySelector(".nav");
+const navigation = document.querySelector(".nav-mobile");
 const iconCloseNav = document.querySelector(
   ".opened-nav-menu .contener_icon-close .icon-close"
 );
@@ -42,10 +42,10 @@ if (amount >= 0) {
 }
 
 showMobNav = () => {
-  navigation.style.display = "flex";
+  navigation.classList.remove("hidden");
   //   close a mobile nav
   iconCloseNav.addEventListener("click", () => {
-    navigation.style.display = "none";
+    navigation.classList.add("hidden");
   });
 };
 

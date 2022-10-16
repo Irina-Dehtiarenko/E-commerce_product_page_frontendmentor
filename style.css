@@ -68,7 +68,7 @@ nav {
   justify-content: space-between;
   width: 55%;
 }
-.nav {
+.nav-desktop {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -558,8 +558,10 @@ button.add {
     display: flex;
     padding: 20px;
   }
-  .nav {
+  .nav-desktop {
     display: none;
+  }
+  .nav-mobile {
     z-index: 1;
     flex-direction: column;
     justify-content: flex-start;
@@ -570,7 +572,7 @@ button.add {
     width: 100vw;
     background: rgba(0, 0, 0, 0.75);
   }
-  .nav .icon-close {
+  .nav-mobile .icon-close {
     display: block;
     padding: 10px;
   }
