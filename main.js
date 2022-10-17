@@ -9,7 +9,7 @@
 // 3. Clicking on the button + :
 // 3.1 (if strong amount < 0 - return, if strong amount === 0  - add .hidden)remove hidded(div.amount-of-order) amount +=1
 // 3.2 strong.amount +=1
-
+let number = 1;
 let amount = 0;
 const price = 125;
 const buttonCart = document.querySelector("button.cart");
@@ -32,25 +32,68 @@ const buttonAddToCart = document.querySelector("button.add");
 
 const buttonDelete = document.querySelector("div.product svg");
 
-const allContenersImage = [
+const allContenersImageMainPage = [
   ...document.querySelectorAll(
     "article.main-page .all-images .container_image"
   ),
 ];
-console.log(allContenersImage);
 
-// show the clicked picture bigger
+const allContenersImageLightbox = [
+  ...document.querySelectorAll(
+    "article.light-box .all-images .container_image"
+  ),
+];
+console.log(allContenersImageLightbox);
+const mainImage = document.querySelector(
+  ".main-page div.main-images img.main-image"
+);
+
+const iconPrevious = document.querySelector(
+  ".main-page div.main-images div.contener_icon-previous"
+);
+
+const iconNext = document.querySelector(
+  ".main-page div.main-images div.contener_icon-next"
+);
+
+const srcBigImg = () => {
+  mainImage.src = `http://127.0.0.1:5500/JS/ecommerce-product-page-main/images/image-product-${number}.jpg`;
+};
+
+// show the big picture in the mobile device
+iconPrevious.addEventListener("click", () => {
+  if (number <= 1) {
+    number = 4;
+    srcBigImg();
+  } else {
+    number -= 1;
+    srcBigImg();
+  }
+});
+
+iconNext.addEventListener("click", () => {
+  if (number === 4) {
+    number = 1;
+    srcBigImg();
+  } else {
+    number += 1;
+    srcBigImg();
+  }
+});
+
+// show the clicked picture bigger in version for device with min-width 394px
 const showBiggerPicture = (e) => {
   // reset not active img
-  allContenersImage.forEach((contenerImg) => {
+  allContenersImageMainPage.forEach((contenerImg) => {
     contenerImg.classList.remove("active");
   });
 
   const containerImg = e.target;
   containerImg.parentNode.classList.add("active");
+  mainImage.src = containerImg.src;
 };
 
-allContenersImage.forEach((contenerImg) => {
+allContenersImageMainPage.forEach((contenerImg) => {
   contenerImg.addEventListener("click", showBiggerPicture);
 });
 

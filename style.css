@@ -612,7 +612,9 @@ button.add {
     left: -8px;
     width: 105%;
   }
-
+  .light-box {
+    display: none;
+  }
   .container_images {
     margin: 0;
     width: 100vw;
