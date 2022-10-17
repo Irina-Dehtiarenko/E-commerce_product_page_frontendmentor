@@ -43,11 +43,6 @@ const allContenersImageLightbox = [
     "article.light-box .all-images .container_image"
   ),
 ];
-console.log(allContenersImageLightbox);
-const mainImage = document.querySelector(
-  ".main-page div.main-images img.main-image"
-);
-
 const iconPrevious = document.querySelector(
   ".main-page div.main-images div.contener_icon-previous"
 );
@@ -55,6 +50,19 @@ const iconPrevious = document.querySelector(
 const iconNext = document.querySelector(
   ".main-page div.main-images div.contener_icon-next"
 );
+
+const mainImage = document.querySelector(
+  ".main-page div.main-images img.main-image"
+);
+const mainImageLightbox = document.querySelector(
+  "article.light-box div.main-images img.main-image"
+);
+
+const lightbox = document.querySelector("article.light-box");
+const ButtonCloseLightbox = document.querySelector(
+  "article.light-box .main-images .container_close-svg"
+);
+console.log(ButtonCloseLightbox);
 
 const srcBigImg = () => {
   mainImage.src = `http://127.0.0.1:5500/JS/ecommerce-product-page-main/images/image-product-${number}.jpg`;
@@ -95,6 +103,16 @@ const showBiggerPicture = (e) => {
 
 allContenersImageMainPage.forEach((contenerImg) => {
   contenerImg.addEventListener("click", showBiggerPicture);
+});
+
+// opening the lightbox
+mainImage.addEventListener("click", (e) => {
+  lightbox.classList.remove("hidden");
+});
+
+// closing the lightbox
+ButtonCloseLightbox.addEventListener("click", () => {
+  lightbox.classList.add("hidden");
 });
 
 const resetAmount = () => {
