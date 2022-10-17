@@ -55,7 +55,19 @@ showMobNav = () => {
   });
 };
 
+const resetEmount = () => {
+  cartEmpty.classList.remove("hidden");
+  cartNotEmpty.classList.add("hidden");
+  amounOfOrder.classList.add("hidden");
+};
+
 iconMenu.addEventListener("click", showMobNav);
+
+const deleteOrder = () => {
+  amount = 0;
+  selectedAmount.textContent = amount;
+  resetEmount();
+};
 
 const showCart = () => {
   divCart.classList.toggle("hidden");
@@ -83,9 +95,7 @@ buttonPlus.addEventListener("click", () => {
 const addToCart = () => {
   divCart.classList.add("hidden");
   if (amount === 0) {
-    cartEmpty.classList.remove("hidden");
-    cartNotEmpty.classList.add("hidden");
-    amounOfOrder.classList.add("hidden");
+    resetEmount();
   } else {
     cartEmpty.classList.add("hidden");
     cartNotEmpty.classList.remove("hidden");
