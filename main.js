@@ -31,22 +31,36 @@ const buttonPlus = document.querySelector("button.plus");
 const buttonAddToCart = document.querySelector("button.add");
 
 const buttonDelete = document.querySelector("div.product svg");
-console.log(buttonDelete);
 
-// odrazu po zaladowaniu strony:
-selectedAmount.textContent = amount;
+const allContenersImage = [
+  ...document.querySelectorAll(
+    "article.main-page .all-images .container_image"
+  ),
+];
+console.log(allContenersImage);
 
-// show the amoun of order in cart(powinno się zmieniać po klinknięciu w button)
+// show the clicked picture bigger
+const showBiggerPicture = (e) => {
+  // reset not active img
+  allContenersImage.forEach((contenerImg) => {
+    contenerImg.classList.remove("active");
+  });
 
-// if (amount >= 0) {
-//   if (amount === 0) {
-//     amounOfOrder.classList.add("hidden");
-//   } else {
-//     amounOfOrder.classList.remove("hidden");
-//     amounOfOrder.textContent = amount;
-//   }
-// }
+  const containerImg = e.target;
+  containerImg.parentNode.classList.add("active");
+};
 
+allContenersImage.forEach((contenerImg) => {
+  contenerImg.addEventListener("click", showBiggerPicture);
+});
+
+const resetAmount = () => {
+  cartEmpty.classList.remove("hidden");
+  cartNotEmpty.classList.add("hidden");
+  amounOfOrder.classList.add("hidden");
+};
+
+// function of showing a mobile menu after klick on the button
 showMobNav = () => {
   navigation.classList.remove("hidden");
   //   close a mobile nav
@@ -55,20 +69,16 @@ showMobNav = () => {
   });
 };
 
-const resetEmount = () => {
-  cartEmpty.classList.remove("hidden");
-  cartNotEmpty.classList.add("hidden");
-  amounOfOrder.classList.add("hidden");
-};
-
 iconMenu.addEventListener("click", showMobNav);
 
+// Deleting order from the cart
 const deleteOrder = () => {
   amount = 0;
   selectedAmount.textContent = amount;
-  resetEmount();
+  resetAmount();
 };
 
+// opening the cart after clicking on button "cart"
 const showCart = () => {
   divCart.classList.toggle("hidden");
 
@@ -78,24 +88,23 @@ const showCart = () => {
 };
 buttonCart.addEventListener("click", showCart);
 
+// reducing amount
 buttonMinus.addEventListener("click", () => {
-  if (amount <= 0) {
-    return;
-  } else {
-    amount -= 1;
-    selectedAmount.textContent = amount;
-  }
+  amount -= 1;
+  selectedAmount.textContent = amount;
 });
 
+// increasing amount
 buttonPlus.addEventListener("click", () => {
   amount += 1;
   selectedAmount.textContent = amount;
 });
 
+//adding order to the cart with the selected amount of goods
 const addToCart = () => {
   divCart.classList.add("hidden");
   if (amount === 0) {
-    resetEmount();
+    resetAmount();
   } else {
     cartEmpty.classList.add("hidden");
     cartNotEmpty.classList.remove("hidden");
