@@ -629,8 +629,8 @@ button.add {
     display: none;
   }
 
-  .contener_icon-next,
-  .contener_icon-previous {
+  .main-page .contener_icon-next,
+  .main-page .contener_icon-previous {
     display: block;
     text-align: center;
     position: absolute;
