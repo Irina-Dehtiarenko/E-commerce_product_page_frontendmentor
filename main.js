@@ -74,6 +74,21 @@ allContenersImageMainPage.forEach((contenerImg) => {
   contenerImg.addEventListener("click", showBiggerPicture);
 });
 
+// show biggest picture in the lightbox afler click on the little picture
+const showBiggerPictureLightbox = (e) => {
+  allContenersImageLightbox.forEach((contenerImg) => {
+    contenerImg.classList.remove("active");
+  });
+
+  const containerImg = e.target;
+  containerImg.parentNode.classList.add("active");
+  mainImageLightbox.src = containerImg.src;
+};
+
+allContenersImageLightbox.forEach((contenerImg) => {
+  contenerImg.addEventListener("click", showBiggerPictureLightbox);
+});
+
 // opening the lightbox
 mainImage.addEventListener("click", (e) => {
   lightbox.classList.remove("hidden");
