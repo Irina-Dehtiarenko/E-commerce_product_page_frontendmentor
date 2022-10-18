@@ -1,14 +1,3 @@
-/* - 
-- Otwórz galerię lightbox, klikając duży obraz produktu
-- Przełącz duży obraz produktu, klikając małe miniatury zdjęć
-- Dodaj przedmioty do koszyka
-- Zobacz koszyk i usuń z niego przedmioty
- */
-// 1. Clicking on the menu mobile - opened the menu
-// 2. Clicking on thr cart  - opened the choping cart
-// 3. Clicking on the button + :
-// 3.1 (if strong amount < 0 - return, if strong amount === 0  - add .hidden)remove hidded(div.amount-of-order) amount +=1
-// 3.2 strong.amount +=1
 let number = 1;
 let amount = 0;
 const price = 125;
@@ -43,12 +32,18 @@ const allContenersImageLightbox = [
     "article.light-box .all-images .container_image"
   ),
 ];
-const iconPrevious = document.querySelector(
-  ".main-page div.main-images div.contener_icon-previous"
+const iconPreviousMobile = document.querySelector(
+  ".main-page  div.main-images div.contener_icon-previous"
+);
+const iconNextMobile = document.querySelector(
+  ".main-page  div.main-images div.contener_icon-next"
+);
+const iconPreviousLightbox = document.querySelector(
+  ".light-box div.main-images div.contener_icon-previous"
 );
 
-const iconNext = document.querySelector(
-  ".main-page div.main-images div.contener_icon-next"
+const iconNextLightbox = document.querySelector(
+  ".light-box div.main-images div.contener_icon-next"
 );
 
 const mainImage = document.querySelector(
@@ -62,32 +57,6 @@ const lightbox = document.querySelector("article.light-box");
 const ButtonCloseLightbox = document.querySelector(
   "article.light-box .main-images .container_close-svg"
 );
-console.log(ButtonCloseLightbox);
-
-const srcBigImg = () => {
-  mainImage.src = `./images/image-product-${number}.jpg`;
-};
-
-// show the big picture in the mobile device
-iconPrevious.addEventListener("click", () => {
-  if (number <= 1) {
-    number = 4;
-    srcBigImg();
-  } else {
-    number -= 1;
-    srcBigImg();
-  }
-});
-
-iconNext.addEventListener("click", () => {
-  if (number === 4) {
-    number = 1;
-    srcBigImg();
-  } else {
-    number += 1;
-    srcBigImg();
-  }
-});
 
 // show the clicked picture bigger in version for device with min-width 394px
 const showBiggerPicture = (e) => {
@@ -113,6 +82,62 @@ mainImage.addEventListener("click", (e) => {
 // closing the lightbox
 ButtonCloseLightbox.addEventListener("click", () => {
   lightbox.classList.add("hidden");
+});
+
+// show the big picture in the lightbox, changing photo after click click in button previous / next
+
+const srcBigImgLightbox = () => {
+  allContenersImageLightbox.forEach((image) => {
+    image.classList.remove("active");
+  });
+
+  mainImageLightbox.src = `./images/image-product-${number}.jpg`;
+
+  allContenersImageLightbox[number - 1].classList.add("active");
+};
+
+iconPreviousLightbox.addEventListener("click", () => {
+  if (number <= 1) {
+    number = 4;
+    srcBigImgLightbox();
+  } else {
+    number -= 1;
+    srcBigImgLightbox();
+  }
+});
+
+iconNextLightbox.addEventListener("click", () => {
+  if (number === 4) {
+    number = 1;
+    srcBigImgLightbox();
+  } else {
+    number += 1;
+    srcBigImgLightbox();
+  }
+});
+
+// show the big picture in the mobile device, changing photo after click in button previous / next
+const srcBigImg = () => {
+  mainImage.src = `./images/image-product-${number}.jpg`;
+};
+iconPreviousMobile.addEventListener("click", () => {
+  if (number <= 1) {
+    number = 4;
+    srcBigImg();
+  } else {
+    number -= 1;
+    srcBigImg();
+  }
+});
+
+iconNextMobile.addEventListener("click", () => {
+  if (number === 4) {
+    number = 1;
+    srcBigImg();
+  } else {
+    number += 1;
+    srcBigImg();
+  }
 });
 
 const resetAmount = () => {
