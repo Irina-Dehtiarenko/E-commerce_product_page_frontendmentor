@@ -65,7 +65,7 @@ const ButtonCloseLightbox = document.querySelector(
 console.log(ButtonCloseLightbox);
 
 const srcBigImg = () => {
-  mainImage.src = `http://127.0.0.1:5500/JS/ecommerce-product-page-main/images/image-product-${number}.jpg`;
+  mainImage.src = `./images/image-product-${number}.jpg`;
 };
 
 // show the big picture in the mobile device
@@ -151,8 +151,12 @@ buttonCart.addEventListener("click", showCart);
 
 // reducing amount
 buttonMinus.addEventListener("click", () => {
-  amount -= 1;
-  selectedAmount.textContent = amount;
+  if (amount === 0) {
+    return;
+  } else {
+    amount -= 1;
+    selectedAmount.textContent = amount;
+  }
 });
 
 // increasing amount
