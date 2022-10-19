@@ -1,6 +1,7 @@
 let number = 1;
 let amount = 0;
 const price = 125;
+
 const buttonCart = document.querySelector("button.cart");
 const divCart = document.querySelector("div.cart");
 const amounOfOrder = document.querySelector(".amount-of-order");
@@ -14,11 +15,9 @@ const navigation = document.querySelector(".nav-mobile");
 const iconCloseNav = document.querySelector(
   ".opened-nav-menu .contener_icon-close .icon-close"
 );
-
 const buttonMinus = document.querySelector("button.minus");
 const buttonPlus = document.querySelector("button.plus");
 const buttonAddToCart = document.querySelector("button.add");
-
 const buttonDelete = document.querySelector("div.product svg");
 
 const allContenersImageMainPage = [
@@ -26,7 +25,6 @@ const allContenersImageMainPage = [
     "article.main-page .all-images .container_image"
   ),
 ];
-
 const allContenersImageLightbox = [
   ...document.querySelectorAll(
     "article.light-box .all-images .container_image"

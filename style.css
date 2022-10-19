@@ -1,9 +1,6 @@
 /* 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 --> */
 
-/* .attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); } */
-
 /* 
 
 ### Primary
@@ -430,6 +427,18 @@ button.add {
 .add .img-cart {
   margin-right: 20px;
 }
+footer {
+  margin-bottom: 10px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  /* display: block; */
+  color: hsl(228, 45%, 44%);
+}
 
 @media (max-width: 1236px) {
   .light-box .all-images {
@@ -704,6 +713,16 @@ button.add {
     position: absolute;
     top: 30px;
     right: 20px;
+  }
+}
+@media (max-height: 600px) {
+  .light-box img.main-image {
+    width: 40%;
+  }
+}
+@media (max-height: 500px) {
+  .light-box {
+    display: none;
   }
 }
 
